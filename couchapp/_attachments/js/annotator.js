@@ -1,0 +1,1 @@
+../../../../annotator/pkg/annotator.js

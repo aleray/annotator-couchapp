@@ -29,9 +29,6 @@
 }
 
 .intro {
-    column-count: 2;
-    column-gap: 15px;
-
     font-family: 'Liberation Sans';
     font-weight: bold;
     font-size: 12px;
@@ -40,8 +37,15 @@
     margin-bottom: 48px;
 }
 
-.intro p + p {
-    text-indent: 15px;
+.intro h2 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+}
+
+.intro__text ul + p,
+.intro__text p + p {
+    margin-top: 15px;
 }
 
 .intro ol {
@@ -62,10 +66,22 @@
     font-style: italic;
 }
 
+.intro__text {
+    -webkit-column-count: 2;
+       -moz-column-count: 2;
+            column-count: 2;
+    -webkit-column-gap: 15px;
+       -moz-column-gap: 15px;
+            column-gap: 15px;
+
+    margin-bottom: 45px;
+}
+
 .instructions {
     background-color: pink;
     display: inline-block;
     padding: 15px;
+    margin-bottom: 15px;
 }
 
 .article {
@@ -103,8 +119,14 @@
 .footnotes {
     margin-top: 48px;
 
-    column-count: 2;
-    column-gap: 15px;
+    -webkit-column-count: 2;
+
+       -moz-column-count: 2;
+
+            column-count: 2;
+    -webkit-column-gap: 15px;
+       -moz-column-gap: 15px;
+            column-gap: 15px;
 
     font-size: 12px;
     line-height: 15px;
@@ -124,4 +146,60 @@
             column-break-inside:avoid;
 
     margin-bottom: 15px;
+}
+
+/* .annotator-edit { */
+/*     display: none !important; */
+/* } */
+
+.toggle-intro:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 200ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
 }
