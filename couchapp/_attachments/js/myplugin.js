@@ -1,7 +1,7 @@
 function myEditorExtension(e) {
     e.addField({
         id: "name",
-        label: "I am...",
+        label: "I am",
         load: function(field, annotation) { field.getElementsByTagName("input")[0].value = annotation.name || "" },
         submit: function(field, annotation) { annotation.name = field.getElementsByTagName("input")[0].value || "anonymous"}
     });
@@ -35,7 +35,7 @@ function myEditorExtension(e) {
     ul.append(li[0]);
 
     e.element.find(".annotator-cancel").text("I changed my mind");
-    e.element.find(".annotator-save").text("Commit my comment!");
+    e.element.find(".annotator-save").text("Save");
 };
 
 

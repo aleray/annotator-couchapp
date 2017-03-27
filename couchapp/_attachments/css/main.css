@@ -1,20 +1,23 @@
 @font-face {
     font-family: 'Liberation Sans';
-    src: url('../fonts/LiberationSans-Bold.ttf') format('truetype');
+    src: url('../fonts/liberationsans-bold-webfont.woff2') format('woff2'),
+         url('../fonts/liberationsans-bold-webfont.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Liberation Sans';
-    src: url('../fonts/LiberationSans-BoldItalic.ttf') format('truetype');
+    src: url('../fonts/liberationsans-bolditalic-webfont.woff2') format('woff2'),
+         url('../fonts/liberationsans-bolditalic-webfont.woff') format('woff');
     font-weight: bold;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Ume Mincho P';
-    src: url('../fonts/ume-pmo3.ttf') format('truetype');
+    src: url('../fonts/ume-pmo3-webfont.woff2') format('woff2'),
+         url('../fonts/ume-pmo3-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }

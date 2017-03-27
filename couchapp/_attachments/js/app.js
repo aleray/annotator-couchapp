@@ -2,6 +2,8 @@
     'use strict';
 
     $(".toggle-intro").click(function() {
+        var txt = $(this).text() != 'Hide the intro' ? 'Hide the intro' : 'Read the intro';
+        $(this).text(txt);
         $('.intro__text').toggle();
     });
     
@@ -23,9 +25,10 @@
                 ann.uri = window.location.href;
                 ann.creationDate = JSON.parse(JSON.stringify(new Date()));
             },
-            // annotationCreated: function (ann) {
-            //     console.log(ann);
-            // }
+            annotationCreated: function (ann) {
+                var elt = document.getElementById("comment-nbr");
+                elt.innerHTML = parseInt(elt.innerHTML) + 1;
+            },
             annotationsLoaded: function (annotations) {
                 document.getElementById("comment-nbr").innerHTML = annotations.length;
             },
