@@ -41,71 +41,19 @@ function myEditorExtension(e) {
 
 function myViewerExtension(v) {
     v.render = function (annotation) {
+        var convert = annotator.util.escapeHtml;
+
+        var md = window.markdownit({
+            html: true,
+        });
+        var comment = md.render(annotation.text);
+
         var txt = [
             "<p>" + prettyDate(annotation.creationDate) + ", " + annotation.name + " wrote:</p>",
-            "<div>" + annotation.text + "</div>",
+            "<div class=\"comment\">" + comment + "</div>",
         ];
 
         return txt.join("\n")
     }
-    // function _t (txt) { return txt }
-
-
-    // // HTML templates for this.widget and this.item properties.
-    // v.template = [
-    //     '<p>super</p>',
-    //     '<div class="annotator-outer annotator-viewer annotator-hide">',
-    //     '  <ul class="annotator-widget annotator-listing"></ul>',
-    //     '</div>'
-    // ].join('\n');
-
-    // v.itemTemplate = [
-    //     '<li class="annotator-annotation annotator-item">',
-    //     '  <span class="annotator-controls">',
-    //     '    <a href="#"',
-    //     '       title="' + _t('View as webpage') + '"',
-    //     '       class="annotator-link">' + _t('View as webpage') + '</a>',
-    //     '    <button type="button"',
-    //     '            title="' + _t('Edit') + '"',
-    //     '            class="annotator-edit">' + _t('Edit') + '</button>',
-    //     '    <button type="button"',
-    //     '            title="' + _t('Delete') + '"',
-    //     '            class="annotator-delete">' + _t('Delete') + '</button>',
-    //     '  </span>',
-    //     '</li>'
-    // ].join('\n');
-    // v.itemTemplate = "<li>blabla</li>";
-
-
-    // v.addField({
-    //     load: function (field, annotation) {
-    //         field = $(field);
-    //         if (annotation.url) {
-    //             field.append($("a").attr("href", annotation.url).text(annotation.url));
-    //         } else {
-    //             field.remove();
-    //         }
-    //     }
-    // });
-    // v.addField({
-    //     load: function (field, annotation) {
-    //         field = $(field);
-    //         if (annotation.title) {
-    //             field.html(annotation.title)
-    //         } else {
-    //             field.remove();
-    //         }
-    //     }
-    // });
-    // v.addField({
-    //     load: function (field, annotation) {
-    //         field = $(field);
-    //         if (annotation.name) {
-    //             field.html(annotation.name)
-    //         } else {
-    //             field.remove();
-    //         }
-    //     }
-    // });
 };
 
