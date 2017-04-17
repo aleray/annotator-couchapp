@@ -41,17 +41,34 @@ function myEditorExtension(e) {
 
 function myViewerExtension(v) {
     v.render = function (annotation) {
-        var convert = annotator.util.escapeHtml;
-
-        var md = window.markdownit({
-            html: true,
-        });
-        var comment = md.render(annotation.text);
+        var name = annotation.name || "anonymous";
 
         var txt = [
-            "<p>" + prettyDate(annotation.creationDate) + ", " + annotation.name + " wrote:</p>",
-            "<div class=\"comment\">" + comment + "</div>",
+            "<p>" + prettyDate(annotation.creationDate) + ", " + name + " wrote:</p>",
         ];
+
+        if (annotation.url) {
+            if (annotation.title) {
+                var str = "<div><a href=\"" + annotation.url + "\">" + annotation.title + "</a></div>"
+            } else {
+                var str = "<div><a href=\"" + annotation.url + "\">" + annotation.url + "</a></div>"
+            }
+
+            txt.push(str);
+        }
+
+        if (annotation.text) {
+            var convert = annotator.util.escapeHtml;
+
+            var md = window.markdownit({
+                html: true,
+            });
+            var comment = md.render(annotation.text);
+            
+            var comment = "<div class=\"comment\">" + comment + "</div>";
+
+            txt.push(comment);
+        }
 
         return txt.join("\n")
     }

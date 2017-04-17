@@ -9,7 +9,8 @@
     
 
     // fade the text out through time
-    var startDate = new Date(2017, 2, 26);
+    // var startDate = new Date(2017, 2, 26);
+    var startDate = new Date(2017, 3, 7);
     var dueDate = new Date(2017, 3, 27);
     var currentDate = new Date();
     var delta = dueDate - currentDate;
